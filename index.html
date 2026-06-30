@@ -6,23 +6,10 @@
 <title>JK Lee Homepage</title>
 
 <style>
-
 body{
     margin:0;
     font-family:Arial, sans-serif;
-    background:#f3f3f3;
-}
-
-header{
-    background-image:url("background.png.png");
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-    color:white;
-
-    padding:230px 80px 220px 80px;
-
-    text-align:left;
+    background:#111;
 }
 
 nav{
@@ -31,147 +18,143 @@ nav{
     left:0;
     width:100%;
     z-index:1000;
-
     background:rgba(0,0,0,0.65);
     backdrop-filter:blur(8px);
-
-    text-align:center;
     padding:18px 0;
+    text-align:center;
+}
+
+.logo{
+    color:white;
+    font-size:26px;
+    font-weight:bold;
+    margin-right:60px;
 }
 
 nav a{
     color:white;
     text-decoration:none;
-    margin:20px;
-    font-size:18px;
+    margin:0 18px;
+    font-size:17px;
 }
 
-section{
-    width:80%;
-    margin:40px auto;
-    background:white;
-    padding:30px;
-    border-radius:10px;
-    box-shadow:0 0 10px rgba(0,0,0,.2);
-}
-
-footer{
-    background:#1f4e79;
+header{
+    background-image:url("background.png.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
     color:white;
-    text-align:center;
-    padding:20px;
-    margin-top:40px;
+    padding:180px 80px 90px 80px;
+    text-align:left;
 }
-    .quick-menu{
 
+header p{
+    font-size:24px;
+    line-height:1.7;
+    margin:0 0 20px 0;
+}
+
+header h1{
+    font-size:82px;
+    line-height:1.05;
+    margin:20px 0;
+}
+
+.quick-menu{
     width:90%;
-    margin:-120px auto 80px;
-
+    margin:40px auto 0;
     display:flex;
-
-    justify-content:space-between;
-
     gap:20px;
-
-    position:relative;
-
-    z-index:100;
-
 }
 
 .card{
-
     flex:1;
-
     background:rgba(20,40,70,.65);
-
     backdrop-filter:blur(8px);
-
     border:1px solid rgba(255,255,255,.25);
-
     border-radius:18px;
-
     color:white;
-
     text-align:center;
-
-    padding:35px 15px;
-
+    padding:30px 15px;
     transition:.3s;
-
 }
 
 .card:hover{
-
     transform:translateY(-10px);
-
     background:rgba(40,70,110,.9);
-
 }
 
 .card h3{
-
-    margin:15px 0 10px;
-
-    font-size:24px;
-
+    margin:0 0 10px;
+    font-size:22px;
 }
 
 .card p{
-
-    font-size:16px;
-
-    line-height:28px;
-
+    font-size:15px;
+    line-height:1.5;
+    margin:0;
 }
-
 </style>
-
 </head>
 
 <body>
 
+<nav>
+    <span class="logo">JK Lee</span>
+    <a href="#">Home</a>
+    <a href="#">Economics</a>
+    <a href="#">Graphs</a>
+    <a href="#">Programs</a>
+    <a href="#">Contact</a>
+</nav>
+
 <header>
 
-<p>경제학을 가장 쉽게 배우는 곳</p>
+    <p>경제학을 가장 쉽게 배우는 곳</p>
 
-<h1>Economics<br>for Real Life</h1>
+    <h1>Economics<br>for Real Life</h1>
 
-<p>
-미시 · 거시 · 국제 · 경제사부터<br>
-직접 만든 그래프와 프로그램까지<br>
-체계적으로 정리한 나만의 경제학 공간
-</p>
+    <p>
+        미시 · 거시 · 국제 · 경제사부터<br>
+        직접 만든 그래프와 프로그램까지<br>
+        체계적으로 정리한 나만의 경제학 공간
+    </p>
+
+    <div class="quick-menu">
+
+        <div class="card">
+            <h3>Economics</h3>
+            <p>Micro, Macro & International Economics</p>
+        </div>
+
+        <div class="card">
+            <h3>Graphs</h3>
+            <p>Charts & Data Visualization</p>
+        </div>
+
+        <div class="card">
+            <h3>Programs</h3>
+            <p>WPF Applications</p>
+        </div>
+
+        <div class="card">
+            <h3>Research</h3>
+            <p>Study Notes & Research</p>
+        </div>
+
+        <div class="card">
+            <h3>Gallery</h3>
+            <p>Images & Resources</p>
+        </div>
+
+        <div class="card">
+            <h3>Contact</h3>
+            <p>Questions & Feedback</p>
+        </div>
+
+    </div>
 
 </header>
-</header>
-
-<nav>
-
-<span class="logo">JK Lee</span>
-
-<a href="#">Home</a>
-
-<a href="#">Economics</a>
-
-<a href="#">Programs</a>
-
-<a href="#">Contact</a>
-
-</nav>
-<nav>
-
-<span class="logo">JK Lee</span>
-
-<a href="#">Home</a>
-
-<a href="#">Economics</a>
-
-<a href="#">Programs</a>
-
-<a href="#">Contact</a>
-
-</nav>
 
 </body>
 </html>
