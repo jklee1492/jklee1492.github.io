@@ -18,7 +18,7 @@ nav{
     left:0;
     width:100%;
     z-index:1000;
-    background:rgba(0,0,0,0.65);
+    background:rgba(0,0,0,0.7);
     backdrop-filter:blur(8px);
     padding:18px 0;
     text-align:center;
@@ -26,73 +26,99 @@ nav{
 
 .logo{
     color:white;
-    font-size:26px;
+    font-size:28px;
     font-weight:bold;
-    margin-right:60px;
+    margin-right:70px;
 }
 
 nav a{
     color:white;
     text-decoration:none;
-    margin:0 18px;
+    margin:0 20px;
     font-size:17px;
+    font-weight:bold;
 }
 
 header{
+    min-height:100vh;
     background-image:url("background.png.png");
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
     color:white;
-    padding:180px 80px 90px 80px;
-    text-align:left;
+    padding:150px 80px 60px 80px;
+    box-sizing:border-box;
 }
 
-header p{
-    font-size:24px;
-    line-height:1.7;
-    margin:0 0 20px 0;
+.hero-text{
+    max-width:720px;
 }
 
-header h1{
-    font-size:82px;
+.hero-text .small{
+    font-size:26px;
+    margin-bottom:20px;
+}
+
+.hero-text h1{
+    font-size:86px;
     line-height:1.05;
-    margin:20px 0;
+    margin:0 0 30px 0;
+}
+
+.hero-text .desc{
+    font-size:24px;
+    line-height:1.6;
+    margin-bottom:40px;
 }
 
 .quick-menu{
-    width:90%;
-    margin:40px auto 0;
+    width:100%;
     display:flex;
-    gap:20px;
+    justify-content:center;
+    gap:22px;
+    margin-top:45px;
+    flex-wrap:nowrap;
 }
 
 .card{
-    flex:1;
-    background:rgba(20,40,70,.65);
+    width:190px;
+    height:155px;
+    background:rgba(15,35,65,.72);
     backdrop-filter:blur(8px);
-    border:1px solid rgba(255,255,255,.25);
+    border:1px solid rgba(255,255,255,.28);
     border-radius:18px;
     color:white;
     text-align:center;
-    padding:30px 15px;
+    text-decoration:none;
+    padding:25px 15px;
+    box-sizing:border-box;
     transition:.3s;
 }
 
 .card:hover{
     transform:translateY(-10px);
-    background:rgba(40,70,110,.9);
+    background:rgba(45,75,115,.9);
 }
 
 .card h3{
-    margin:0 0 10px;
+    margin:0 0 15px 0;
     font-size:22px;
 }
 
 .card p{
-    font-size:15px;
-    line-height:1.5;
     margin:0;
+    font-size:15px;
+    line-height:1.45;
+}
+
+@media(max-width:1100px){
+    .quick-menu{
+        flex-wrap:wrap;
+    }
+
+    .hero-text h1{
+        font-size:60px;
+    }
 }
 </style>
 </head>
@@ -101,82 +127,66 @@ header h1{
 
 <nav>
     <span class="logo">JK Lee</span>
-    <a href="#">Home</a>
-    <a href="#">Economics</a>
-    <a href="#">Graphs</a>
-    <a href="#">Programs</a>
-    <a href="#">Contact</a>
+    <a href="index.html">Home</a>
+    <a href="economics.html">Economics</a>
+    <a href="graphs.html">Graphs</a>
+    <a href="programs.html">Programs</a>
+    <a href="contact.html">Contact</a>
 </nav>
 
 <header>
 
-    <p>What is Economics?</p>
+    <div class="hero-text">
 
-    <h1>Economics<br>for Real Life</h1>
+        <p class="small">What is Economics?</p>
 
-    <p>
-        From Micro, Macro, International, and Economic History<br>
-        
-        A Systematically Organized Space for Economics
-    </p>
+        <h1>Economics<br>for Real Life</h1>
+
+        <p class="desc">
+            From Micro, Macro, International, and Economic History<br>
+            A Systematically Organized Space for Economics
+        </p>
+
+    </div>
 
     <div class="quick-menu">
 
-        <div class="card">
+        <a href="economics.html" class="card">
             <h3>Economics</h3>
-            <p>Micro, Macro & International Economics</p>
-        </div>
+            <p>Micro, Macro & International</p>
+        </a>
 
-        <div class="card">
-            <h3>Economics Histories</h3>
-            <p>The story of what humanity has experienced and done</p>
-        </div>
+        <a href="history.html" class="card">
+            <h3>History</h3>
+            <p>Economic History</p>
+        </a>
 
-        <div class="card">
+        <a href="programs.html" class="card">
             <h3>Programs</h3>
             <p>WPF Applications</p>
-        </div>
+        </a>
 
-        <div class="card">
+        <a href="research.html" class="card">
             <h3>Research</h3>
-            <p>Study Notes & Research</p>
-        </div>
+            <p>Study Notes</p>
+        </a>
 
-      <div class="quick-menu">
+        <a href="gallery.html" class="card">
+            <h3>Gallery</h3>
+            <p>Images & Resources</p>
+        </a>
 
-    <a href="economics.html" class="card">
-        <h3>Economics</h3>
-        <p>Micro, Macro & International Economics</p>
-    </a>
+        <a href="contact.html" class="card">
+            <h3>Contact</h3>
+            <p>Questions & Feedback</p>
+        </a>
 
-    <a href="history.html" class="card">
-        <h3>Economic History</h3>
-        <p>The Story of Human Economic Development</p>
-    </a>
-
-    <a href="programs.html" class="card">
-        <h3>Programs</h3>
-        <p>WPF Applications</p>
-    </a>
-
-    <a href="research.html" class="card">
-        <h3>Research</h3>
-        <p>Study Notes & Research</p>
-    </a>
-
-    <a href="gallery.html" class="card">
-        <h3>Gallery</h3>
-        <p>Images & Resources</p>
-    </a>
-
-    <a href="contact.html" class="card">
-        <h3>Contact</h3>
-        <p>Questions & Feedback</p>
-    </a>
-
-</div>
+    </div>
 
 </header>
+
+</body>
+</html>
 
 </body>
 </html>
