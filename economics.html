@@ -1,149 +1,160 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Economics</title>
 
 <style>
-
 body{
-
     margin:0;
+    font-family:Arial, sans-serif;
+    background-image:url("background.png.png");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    color:white;
+}
 
-    font-family:Arial,sans-serif;
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(8px);
+    padding:18px 0;
+    text-align:center;
+}
 
-    background:#f5f5f5;
+.logo{
+    color:white;
+    font-size:28px;
+    font-weight:bold;
+    margin-right:70px;
+}
 
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 20px;
+    font-size:17px;
+    font-weight:bold;
 }
 
 header{
-
-    background:#123b63;
-
-    color:white;
-
-    padding:40px;
-
+    padding:130px 80px 60px 80px;
+    text-align:left;
 }
 
 header h1{
+    font-size:58px;
+    margin:0 0 15px 0;
+}
 
+header p{
+    font-size:22px;
     margin:0;
-
 }
 
-.container{
-
-    width:80%;
-
-    margin:40px auto;
-
+.econ-menu{
+    width:90%;
+    margin:40px auto 80px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
 }
 
-.card{
-
-    background:white;
-
-    border-radius:12px;
-
-    padding:25px;
-
-    margin-bottom:25px;
-
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
-
-}
-
-h2{
-
-    color:#123b63;
-
-}
-
-a{
-
-    color:#123b63;
-
+.econ-card{
+    background:rgba(15,35,65,.72);
+    backdrop-filter:blur(8px);
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:18px;
+    color:white;
     text-decoration:none;
-
+    padding:35px;
+    transition:.3s;
 }
 
-</style>
+.econ-card:hover{
+    transform:translateY(-8px);
+    background:rgba(45,75,115,.9);
+}
 
+.econ-card h3{
+    margin:0 0 15px 0;
+    font-size:28px;
+}
+
+.econ-card p{
+    margin:0;
+    font-size:18px;
+    line-height:1.5;
+}
+
+@media(max-width:900px){
+    .econ-menu{
+        grid-template-columns:1fr;
+    }
+
+    header h1{
+        font-size:42px;
+    }
+}
+</style>
 </head>
 
 <body>
 
+<nav>
+    <span class="logo">JK Lee</span>
+    <a href="index.html">Home</a>
+    <a href="economics.html">Economics</a>
+    <a href="history.html">History</a>
+    <a href="graphs.html">Graphs</a>
+    <a href="programs.html">Programs</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
 <header>
-
-<h1>Economics</h1>
-
-<p>Economics Lecture Notes</p>
-
+    <h1>Economics</h1>
+    <p>Microeconomics, Macroeconomics, International Economics, and Economic Theory</p>
 </header>
 
-<div class="container">
+<div class="econ-menu">
 
-<div class="card">
+    <a href="microeconomics.html" class="econ-card">
+        <h3>Microeconomics</h3>
+        <p>Consumer choice, demand, supply, markets, and welfare.</p>
+    </a>
 
-<h2>Microeconomics</h2>
+    <a href="macroeconomics.html" class="econ-card">
+        <h3>Macroeconomics</h3>
+        <p>GDP, inflation, unemployment, IS-LM, AD-AS, and growth.</p>
+    </a>
 
-<p>
+    <a href="international-economics.html" class="econ-card">
+        <h3>International Economics</h3>
+        <p>Trade theory, comparative advantage, exchange rates, and globalization.</p>
+    </a>
 
-Consumer Theory<br>
+    <a href="money-banking.html" class="econ-card">
+        <h3>Money & Banking</h3>
+        <p>Money supply, central banks, interest rates, credit, and financial markets.</p>
+    </a>
 
-Producer Theory<br>
+    <a href="market-structure.html" class="econ-card">
+        <h3>Market Structure</h3>
+        <p>Perfect competition, monopoly, oligopoly, and strategic behavior.</p>
+    </a>
 
-Market Structure<br>
-
-General Equilibrium
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h2>Macroeconomics</h2>
-
-<p>
-
-GDP<br>
-
-Inflation<br>
-
-Unemployment<br>
-
-IS-LM Model<br>
-
-AD-AS Model
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h2>International Economics</h2>
-
-<p>
-
-Comparative Advantage<br>
-
-Trade Theory<br>
-
-Exchange Rate
-
-</p>
-
-</div>
+    <a href="practice-problems.html" class="econ-card">
+        <h3>Practice Problems</h3>
+        <p>Multiple-choice questions, calculations, graphs, and explanations.</p>
+    </a>
 
 </div>
 
 </body>
-
 </html>
