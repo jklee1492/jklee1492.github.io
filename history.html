@@ -97,6 +97,7 @@
         display: block;
         padding: 32px;
         color: white;
+        text-decoration: none;
         text-align: left;
         border: 1px solid rgba(255, 255, 255, 0.56);
         border-radius: 16px;
@@ -250,10 +251,10 @@
     </header>
 
     <main class="history-menu">
-      <button class="history-card" type="button" data-topic="Economic History">
+      <a class="history-card" href="economic-history.html">
         <h3>Economic History</h3>
         <p>Overview of economic history, growth, trade, money, and institutions.</p>
-      </button>
+      </a>
 
       <button class="history-card" type="button" data-topic="Portuguese Empire">
         <h3>Portuguese Empire</h3>
@@ -300,7 +301,7 @@
       const textArea = document.querySelector("#noteText");
       const closeButton = document.querySelector(".close");
 
-      document.querySelectorAll(".history-card").forEach((card) => {
+      document.querySelectorAll("button.history-card").forEach((card) => {
         card.addEventListener("click", () => {
           title.textContent = `${card.dataset.topic} Write`;
           modal.classList.add("is-open");
