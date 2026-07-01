@@ -97,6 +97,7 @@
         display: block;
         padding: 32px;
         color: white;
+        text-decoration: none;
         text-align: left;
         border: 1px solid rgba(255, 255, 255, 0.56);
         border-radius: 16px;
@@ -251,10 +252,10 @@
     </header>
 
     <main class="cosmos-menu">
-      <button class="cosmos-card" type="button" data-topic="Universe">
+      <a class="cosmos-card" href="universe.html">
         <h3>Universe</h3>
         <p>Origin, expansion and structure of the universe.</p>
-      </button>
+      </a>
 
       <button class="cosmos-card" type="button" data-topic="Stars">
         <h3>Stars</h3>
@@ -301,7 +302,7 @@
       const textArea = document.querySelector("#noteText");
       const closeButton = document.querySelector(".close");
 
-      document.querySelectorAll(".cosmos-card").forEach((card) => {
+      document.querySelectorAll("button.cosmos-card").forEach((card) => {
         card.addEventListener("click", () => {
           title.textContent = `${card.dataset.topic} Write`;
           modal.classList.add("is-open");
