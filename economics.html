@@ -97,6 +97,7 @@
         display: block;
         padding: 32px;
         color: white;
+        text-decoration: none;
         text-align: left;
         border: 1px solid rgba(255, 255, 255, 0.56);
         border-radius: 16px;
@@ -250,79 +251,35 @@
     </header>
 
     <main class="econ-menu">
-      <button class="econ-card" type="button" data-topic="Microeconomics">
+      <a class="econ-card" href="https://your-blog.com/microeconomics" target="_blank" rel="noopener">
         <h3>Microeconomics</h3>
         <p>Consumer choice, demand, supply, markets, and welfare.</p>
-      </button>
+      </a>
 
-      <button class="econ-card" type="button" data-topic="Macroeconomics">
+      <a class="econ-card" href="https://your-blog.com/macroeconomics" target="_blank" rel="noopener">
         <h3>Macroeconomics</h3>
         <p>GDP, inflation, unemployment, IS-LM, AD-AS, and growth.</p>
-      </button>
+      </a>
 
-      <button class="econ-card" type="button" data-topic="International Economics">
+      <a class="econ-card" href="https://your-blog.com/international-economics" target="_blank" rel="noopener">
         <h3>International Economics</h3>
         <p>Trade theory, comparative advantage, exchange rates, and globalization.</p>
-      </button>
+      </a>
 
-      <button class="econ-card" type="button" data-topic="Money & Banking">
+      <a class="econ-card" href="https://your-blog.com/money-banking" target="_blank" rel="noopener">
         <h3>Money & Banking</h3>
         <p>Money supply, central banks, interest rates, credit, and financial markets.</p>
-      </button>
+      </a>
 
-      <button class="econ-card" type="button" data-topic="Market Structure">
+      <a class="econ-card" href="https://your-blog.com/market-structure" target="_blank" rel="noopener">
         <h3>Market Structure</h3>
         <p>Perfect competition, monopoly, oligopoly, and strategic behavior.</p>
-      </button>
+      </a>
 
-      <button class="econ-card" type="button" data-topic="Practice Problems">
+      <a class="econ-card" href="https://your-blog.com/practice-problems" target="_blank" rel="noopener">
         <h3>Practice Problems</h3>
         <p>Multiple-choice questions, calculations, graphs, and explanations.</p>
-      </button>
+      </a>
     </main>
-
-    <div class="modal" id="writeModal" role="dialog" aria-modal="true" aria-labelledby="writeTitle">
-      <div class="write-box">
-        <div class="write-head">
-          <h2 id="writeTitle">Write</h2>
-          <button class="close" type="button" aria-label="Close">×</button>
-        </div>
-        <div class="write-body">
-          <textarea id="noteText" placeholder="여기에 글을 작성하세요."></textarea>
-          <button class="save" type="button">Save</button>
-        </div>
-      </div>
-    </div>
-
-    <script>
-      const modal = document.querySelector("#writeModal");
-      const title = document.querySelector("#writeTitle");
-      const textArea = document.querySelector("#noteText");
-      const closeButton = document.querySelector(".close");
-
-      document.querySelectorAll(".econ-card").forEach((card) => {
-        card.addEventListener("click", () => {
-          title.textContent = `${card.dataset.topic} Write`;
-          modal.classList.add("is-open");
-          textArea.focus();
-        });
-      });
-
-      closeButton.addEventListener("click", () => {
-        modal.classList.remove("is-open");
-      });
-
-      modal.addEventListener("click", (event) => {
-        if (event.target === modal) {
-          modal.classList.remove("is-open");
-        }
-      });
-
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-          modal.classList.remove("is-open");
-        }
-      });
-    </script>
   </body>
 </html>
