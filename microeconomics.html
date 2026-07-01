@@ -1,1 +1,200 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Microeconomics | JK Lee</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+        background:
+          linear-gradient(90deg, rgba(2, 10, 22, 0.58), rgba(2, 12, 28, 0.2) 54%, rgba(2, 10, 20, 0.36)),
+          linear-gradient(180deg, rgba(0, 10, 24, 0.12), rgba(0, 10, 24, 0.66)),
+          url("assets/economics-hero.png") center / cover fixed no-repeat;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        width: 100%;
+        min-height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(18px, 3vw, 48px);
+        padding: 18px 32px;
+        background: rgba(0, 8, 18, 0.86);
+        backdrop-filter: blur(8px);
+        box-shadow: 0 4px 22px rgba(0, 0, 0, 0.35);
+      }
+
+      .logo {
+        margin-right: clamp(20px, 3vw, 52px);
+        color: white;
+        font-size: clamp(28px, 3vw, 44px);
+        font-weight: 900;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      nav a {
+        color: white;
+        font-size: clamp(15px, 1.5vw, 22px);
+        font-weight: 800;
+        text-decoration: none;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.45);
+      }
+
+      nav a:hover {
+        color: #4bb3ff;
+      }
+
+      main {
+        width: min(1040px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 170px 0 80px;
+      }
+
+      .page-title {
+        margin-bottom: 34px;
+        text-shadow: 0 4px 10px rgba(0, 0, 0, 0.75);
+      }
+
+      .page-title p {
+        margin: 0 0 16px;
+        font-size: clamp(22px, 2vw, 32px);
+      }
+
+      .page-title h1 {
+        margin: 0 0 18px;
+        font-size: clamp(56px, 7vw, 96px);
+        line-height: 1;
+        font-weight: 900;
+      }
+
+      .page-title span {
+        display: block;
+        max-width: 760px;
+        font-size: clamp(18px, 1.7vw, 24px);
+        line-height: 1.45;
+      }
+
+      .link-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .blog-link {
+        min-height: 150px;
+        display: flex;
+        align-items: center;
+        padding: 28px;
+        color: white;
+        text-decoration: none;
+        border: 1px solid rgba(255, 255, 255, 0.56);
+        border-radius: 16px;
+        background:
+          radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.2), transparent 34%),
+          linear-gradient(135deg, rgba(10, 32, 63, 0.9), rgba(6, 26, 52, 0.78));
+        box-shadow:
+          inset 0 0 24px rgba(86, 179, 255, 0.2),
+          0 16px 28px rgba(0, 0, 0, 0.28);
+        transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+      }
+
+      .blog-link:hover,
+      .blog-link:focus-visible {
+        transform: translateY(-6px);
+        border-color: rgba(78, 181, 255, 0.95);
+        box-shadow:
+          inset 0 0 28px rgba(86, 179, 255, 0.28),
+          0 18px 34px rgba(0, 0, 0, 0.34);
+        outline: none;
+      }
+
+      .blog-link strong {
+        display: block;
+        margin-bottom: 10px;
+        font-size: clamp(24px, 2vw, 30px);
+      }
+
+      .blog-link span {
+        color: rgba(255, 255, 255, 0.82);
+        font-size: clamp(16px, 1.3vw, 19px);
+        line-height: 1.45;
+      }
+
+      @media (max-width: 900px) {
+        nav {
+          justify-content: flex-start;
+          flex-wrap: wrap;
+          gap: 14px 22px;
+        }
+
+        main {
+          padding-top: 210px;
+        }
+
+        .link-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <a class="logo" href="index.html">JK Lee</a>
+      <a href="index.html">Home</a>
+      <a href="economics.html">Economics</a>
+      <a href="history.html">History</a>
+      <a href="cosmos.html">Cosmos</a>
+      <a href="graphs.html">Graphs</a>
+      <a href="programs.html">Programs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <main>
+      <section class="page-title">
+        <p>Economics</p>
+        <h1>Microeconomics</h1>
+        <span>Consumer choice, demand, supply, markets, and welfare.</span>
+      </section>
+
+      <section class="link-grid" aria-label="Microeconomics blog links">
+        <a class="blog-link" href="https://your-blog.com/microeconomics-demand-supply" target="_blank" rel="noopener">
+          <span>
+            <strong>Demand and Supply</strong>
+            Basic principles of markets, prices, demand, and supply.
+          </span>
+        </a>
+
+        <a class="blog-link" href="https://your-blog.com/microeconomics-consumer-choice" target="_blank" rel="noopener">
+          <span>
+            <strong>Consumer Choice</strong>
+            Utility, budget constraints, and individual decision making.
+          </span>
+        </a>
+
+        <a class="blog-link" href="https://your-blog.com/microeconomics-welfare" target="_blank" rel="noopener">
+          <span>
+            <strong>Market Welfare</strong>
+            Surplus, efficiency, taxes, and welfare analysis.
+          </span>
+        </a>
+      </section>
+    </main>
+  </body>
+</html>
 
