@@ -7,7 +7,8 @@ body{
     background-position:center;
     background-repeat:no-repeat;
     background-attachment:fixed;
-}body{
+}
+body{
     margin:0;
     font-family:Arial, sans-serif;
     background-image:url("background.png.png");
