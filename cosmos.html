@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cosmos</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background-image:url("background.png.png");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    color:white;
+}
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(0,0,0,.7);
+    backdrop-filter:blur(8px);
+    padding:18px 0;
+    text-align:center;
+}
+
+.logo{
+    color:white;
+    font-size:28px;
+    font-weight:bold;
+    margin-right:70px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 20px;
+    font-size:17px;
+    font-weight:bold;
+}
+
+header{
+    padding:130px 80px 60px 80px;
+}
+
+header h1{
+    font-size:60px;
+    margin:0;
+}
+
+header p{
+    font-size:24px;
+}
+
+.cosmos-menu{
+
+    width:90%;
+
+    margin:40px auto 80px;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+}
+
+.cosmos-card{
+
+    background:rgba(15,35,65,.72);
+
+    backdrop-filter:blur(8px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    border-radius:18px;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:35px;
+
+    transition:.3s;
+
+}
+
+.cosmos-card:hover{
+
+    transform:translateY(-8px);
+
+    background:rgba(45,75,115,.9);
+
+}
+
+.cosmos-card h3{
+
+    margin:0 0 15px;
+
+    font-size:28px;
+
+}
+
+.cosmos-card p{
+
+    margin:0;
+
+    font-size:18px;
+
+    line-height:1.5;
+
+}
+
+@media(max-width:900px){
+
+.cosmos-menu{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<span class="logo">JK Lee</span>
+
+<a href="index.html">Home</a>
+
+<a href="economics.html">Economics</a>
+
+<a href="history.html">History</a>
+
+<a href="graphs.html">Graphs</a>
+
+<a href="programs.html">Programs</a>
+
+<a href="contact.html">Contact</a>
+
+</nav>
+
+<header>
+
+<h1>Cosmos</h1>
+
+<p>The Universe, Space and Everything Beyond</p>
+
+</header>
+
+<div class="cosmos-menu">
+
+<a href="universe.html" class="cosmos-card">
+<h3>Universe</h3>
+<p>Origin, Expansion and Structure of the Universe</p>
+</a>
+
+<a href="stars.html" class="cosmos-card">
+<h3>Stars</h3>
+<p>Birth, Evolution and Death of Stars</p>
+</a>
+
+<a href="planets.html" class="cosmos-card">
+<h3>Planets</h3>
+<p>Solar System and Exoplanets</p>
+</a>
+
+<a href="galaxies.html" class="cosmos-card">
+<h3>Galaxies</h3>
+<p>Milky Way and Other Galaxies</p>
+</a>
+
+<a href="blackholes.html" class="cosmos-card">
+<h3>Black Holes</h3>
+<p>Gravity, Event Horizon and Singularities</p>
+</a>
+
+<a href="space-exploration.html" class="cosmos-card">
+<h3>Space Exploration</h3>
+<p>NASA, ESA, SpaceX and Future Missions</p>
+</a>
+
+</div>
+
+</body>
+
+</html>
