@@ -1,434 +1,171 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>JK Lee</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-      :root {
-        --nav-height: 80px;
-        --blue: #2ea8ff;
-        --ink: #ffffff;
-        --panel: rgba(6, 26, 52, 0.78);
-        --panel-strong: rgba(10, 32, 63, 0.88);
-        --line: rgba(255, 255, 255, 0.58);
-      }
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JK Lee</title>
 
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        min-height: 100vh;
-        color: var(--ink);
-        font-family: Arial, Helvetica, sans-serif;
-       }
-
-     .site {
-    min-height: 100vh;
-    background-image:
-        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-        url("background.png.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    color:white;
 }
 
-      header {
-        height: var(--nav-height);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 clamp(24px, 4vw, 56px);
-        background: rgba(1, 8, 18, 0.94);
-        box-shadow: 0 4px 22px rgba(0, 0, 0, 0.34);
-      }
+.site{
+    min-height:100vh;
+    background:
+        linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
+        url("background.png.png") center / cover no-repeat;
+}
 
-      .brand {
-        color: #fff;
-        font-size: clamp(34px, 3.7vw, 50px);
-        font-weight: 900;
-        line-height: 1;
-        text-decoration: none;
-        text-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
-        white-space: nowrap;
-      }
+header{
+    height:80px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 60px;
+    background:rgba(0,0,0,.75);
+}
 
-      nav {
-        display: flex;
-        align-items: center;
-        gap: clamp(26px, 4vw, 62px);
-      }
+.brand{
+    color:white;
+    font-size:42px;
+    font-weight:bold;
+    text-decoration:none;
+}
 
-      nav a {
-        color: #fff;
-        font-size: clamp(16px, 1.5vw, 25px);
-        font-weight: 800;
-        text-decoration: none;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-      }
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:35px;
+    font-size:22px;
+    font-weight:bold;
+}
 
-      main {
-        min-height: calc(100vh - var(--nav-height));
-        padding: clamp(60px, 10vh, 112px) clamp(24px, 7.5vw, 116px) 44px;
-      }
+main{
+    padding:90px 90px 40px;
+}
 
-      .intro {
-        max-width: 760px;
-        text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
-      }
+.kicker{
+    font-size:30px;
+}
 
-      .kicker {
-        margin: 0 0 18px;
-        font-size: clamp(24px, 2.2vw, 32px);
-        font-weight: 500;
-      }
+h1{
+    font-size:95px;
+    line-height:1;
+    margin:20px 0;
+}
 
-      h1 {
-        margin: 0 0 20px;
-        font-size: clamp(70px, 7.2vw, 108px);
-        line-height: 0.98;
-        font-weight: 900;
-        letter-spacing: 0;
-      }
+.subtitle{
+    font-size:26px;
+    line-height:1.5;
+}
 
-      .subtitle {
-        margin: 0;
-        font-size: clamp(20px, 2vw, 28px);
-        line-height: 1.35;
-        font-weight: 500;
-      }
+.card-grid{
+    margin-top:70px;
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:18px;
+    max-width:1050px;
+    margin-left:auto;
+    margin-right:auto;
+}
 
-      .card-grid {
-        width: min(1000px, 100%);
-        margin: clamp(58px, 8vh, 90px) auto 0;
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 16px 14px;
-      }
+.topic-card{
+    min-height:150px;
+    background:rgba(15,35,65,.75);
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:18px;
+    color:white;
+    text-decoration:none;
+    padding:30px;
+    box-sizing:border-box;
+    transition:.3s;
+}
 
-      .topic-card {
-        min-height: 182px;
-        display: grid;
-        grid-template-columns: 86px 1fr;
-        align-items: center;
-        gap: 18px;
-        padding: 28px 36px;
-        color: #fff;
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        background:
-          radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.2), transparent 34%),
-          linear-gradient(135deg, var(--panel-strong), var(--panel));
-        box-shadow:
-          inset 0 0 24px rgba(86, 179, 255, 0.2),
-          0 16px 28px rgba(0, 0, 0, 0.28);
-        cursor: pointer;
-        transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
-      }
+.topic-card:hover{
+    transform:translateY(-8px);
+    background:rgba(45,75,115,.9);
+}
 
-      .topic-card:hover,
-      .topic-card:focus-visible {
-        transform: translateY(-3px);
-        border-color: rgba(78, 181, 255, 0.95);
-        box-shadow:
-          inset 0 0 28px rgba(86, 179, 255, 0.28),
-          0 18px 34px rgba(0, 0, 0, 0.34);
-        outline: none;
-      }
+.topic-card h2{
+    margin:0 0 15px;
+    font-size:32px;
+}
 
-      .topic-card svg {
-        width: 64px;
-        height: 64px;
-        color: var(--blue);
-        stroke-width: 2.2;
-      }
+.topic-card p{
+    margin:0;
+    font-size:20px;
+    line-height:1.4;
+}
+</style>
+</head>
 
-      .topic-card h2 {
-        margin: 0 0 16px;
-        font-size: clamp(27px, 2.1vw, 34px);
-        line-height: 1.05;
-      }
+<body>
 
-      .topic-card p {
-        margin: 0;
-        font-size: clamp(18px, 1.55vw, 22px);
-        line-height: 1.35;
-      }
+<div class="site">
 
-      .modal {
-        position: fixed;
-        inset: 0;
-        z-index: 10;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-        background: rgba(0, 0, 0, 0.64);
-      }
+<header>
+    <a class="brand" href="index.html">JK Lee</a>
 
-      .modal.is-open {
-        display: flex;
-      }
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="economics.html">Economics</a>
+        <a href="history.html">History</a>
+        <a href="cosmos.html">Cosmos</a>
+        <a href="#">Research</a>
+        <a href="#">Gallery</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
 
-      .write-box {
-        width: min(680px, 100%);
-        color: #0b1728;
-        background: #f7fbff;
-        border-radius: 14px;
-        box-shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
-        overflow: hidden;
-      }
+<main>
+    <p class="kicker">What is Economics?</p>
 
-      .write-head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 18px 22px;
-        color: #fff;
-        background: #061426;
-      }
+    <h1>Economics<br>for Real Life</h1>
 
-      .write-head h2 {
-        margin: 0;
-        font-size: 24px;
-      }
+    <p class="subtitle">
+        From Micro, Macro, International and Economic History<br>
+        A Systematically Organized Space for Economics
+    </p>
 
-      .close {
-        width: 38px;
-        height: 38px;
-        color: #fff;
-        border: 0;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.12);
-        font-size: 28px;
-        line-height: 1;
-        cursor: pointer;
-      }
+    <section class="card-grid">
 
-      .write-body {
-        padding: 22px;
-      }
+        <a class="topic-card" href="economics.html">
+            <h2>Economics</h2>
+            <p>Micro, Macro & International</p>
+        </a>
 
-      textarea {
-        width: 100%;
-        min-height: 280px;
-        padding: 16px;
-        color: #12233a;
-        border: 1px solid #b7c8dc;
-        border-radius: 8px;
-        font: 18px/1.5 Arial, Helvetica, sans-serif;
-        resize: vertical;
-      }
+        <a class="topic-card" href="history.html">
+            <h2>History</h2>
+            <p>Economic History</p>
+        </a>
 
-      .save {
-        margin-top: 14px;
-        padding: 12px 22px;
-        color: #fff;
-        border: 0;
-        border-radius: 8px;
-        background: #1176c9;
-        font-size: 17px;
-        font-weight: 800;
-        cursor: pointer;
-      }
+        <a class="topic-card" href="cosmos.html">
+            <h2>Cosmos</h2>
+            <p>Everything we can imagine</p>
+        </a>
 
-      @media (max-width: 920px) {
-        header {
-          height: auto;
-          min-height: var(--nav-height);
-          align-items: flex-start;
-          flex-direction: column;
-          gap: 18px;
-          padding-top: 18px;
-          padding-bottom: 18px;
-        }
+        <a class="topic-card" href="#">
+            <h2>Research</h2>
+            <p>Study Notes</p>
+        </a>
 
-        nav {
-          width: 100%;
-          flex-wrap: wrap;
-          gap: 14px 24px;
-        }
+        <a class="topic-card" href="#">
+            <h2>Gallery</h2>
+            <p>Images & Resources</p>
+        </a>
 
-        main {
-          padding-top: 48px;
-        }
+        <a class="topic-card" href="#">
+            <h2>Contact</h2>
+            <p>Questions & Feedback</p>
+        </a>
 
-        .card-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-      }
+    </section>
+</main>
 
-      @media (max-width: 640px) {
-        .card-grid {
-          grid-template-columns: 1fr;
-        }
+</div>
 
-        .topic-card {
-          grid-template-columns: 68px 1fr;
-          min-height: 148px;
-          padding: 22px;
-        }
-
-        .topic-card svg {
-          width: 54px;
-          height: 54px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="site">
-      <header>
-        <a class="brand" href="#">JK Lee</a>
-        <nav aria-label="Main navigation">
-          <a href="#">Home</a>
-          <a href="economics.html">Economics</a>
-          <a href="history.html">History</a>
-          <a href="cosmos.html">Cosmos</a>
-          <a href="#">Research</a>
-          <a href="#">Gallery</a>
-          <a href="#">Contact</a>
-        </nav>
-      </header>
-
-      <main>
-        <section class="intro" aria-labelledby="hero-title">
-          <p class="kicker">What is Economics?</p>
-          <h1 id="hero-title">Economics<br />for Real Life</h1>
-          <p class="subtitle">From Micro, Macro, International and Economic History<br />A Systematically Organized Space for Economics</p>
-        </section>
-
-        <section class="card-grid" aria-label="Topics">
-          <a class="topic-card" href="economics.html" aria-label="Economics page">
-            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" aria-hidden="true">
-              <path d="M10 52h44" />
-              <path d="M15 52V36h8v16" />
-              <path d="M28 52V25h8v27" />
-              <path d="M41 52V14h8v38" />
-            </svg>
-            <span>
-              <h2>Economics</h2>
-              <p>Micro, Macro &<br />International</p>
-            </span>
-          </a>
-
-          <a class="topic-card" href="history.html" aria-label="History page">
-            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" aria-hidden="true">
-              <path d="M31 18c-6-5-14-5-22-2v35c8-3 16-3 22 2 6-5 14-5 22-2V16c-8-3-16-3-22 2Z" />
-              <path d="M31 18v35" />
-              <path d="M15 25c4-1 8-1 12 1" />
-              <path d="M37 26c4-2 8-2 12-1" />
-              <path d="M15 35c4-1 8-1 12 1" />
-              <path d="M37 36c4-2 8-2 12-1" />
-            </svg>
-            <span>
-              <h2>History</h2>
-              <p>Economic History</p>
-            </span>
-          </a>
-
-          <a class="topic-card" href="cosmos.html" aria-label="Cosmos page">
-            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" aria-hidden="true">
-              <circle cx="30" cy="32" r="16" />
-              <path d="M8 40c9 8 32 7 45-6 5-5 5-9 2-11-4-3-13 0-23 7S14 45 10 42c-1-1-2-1-2-2Z" />
-            </svg>
-            <span>
-              <h2>Cosmos</h2>
-              <p>Everything we can<br />imagine</p>
-            </span>
-          </a>
-
-          <button class="topic-card" type="button" data-topic="Research">
-            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" aria-hidden="true">
-              <path d="M22 12h20v8H22z" />
-              <path d="M18 18h28a5 5 0 0 1 5 5v30H13V23a5 5 0 0 1 5-5Z" />
-              <path d="M25 31h16" />
-              <path d="M25 41h16" />
-              <path d="M20 31h1" />
-              <path d="M20 41h1" />
-            </svg>
-            <span>
-              <h2>Research</h2>
-              <p>Study Notes</p>
-            </span>
-          </button>
-
-          <button class="topic-card" type="button" data-topic="Gallery">
-            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" aria-hidden="true">
-              <rect x="10" y="16" width="44" height="34" rx="4" />
-              <circle cx="40" cy="27" r="4" />
-              <path d="M14 46l13-13 9 8 7-6 11 11" />
-            </svg>
-            <span>
-              <h2>Gallery</h2>
-              <p>Images & Resources</p>
-            </span>
-          </button>
-
-          <button class="topic-card" type="button" data-topic="Contact">
-            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" aria-hidden="true">
-              <rect x="9" y="17" width="46" height="34" rx="4" />
-              <path d="m12 21 20 17 20-17" />
-            </svg>
-            <span>
-              <h2>Contact</h2>
-              <p>Questions & Feedback</p>
-            </span>
-          </button>
-        </section>
-      </main>
-    </div>
-
-    <div class="modal" id="writeModal" role="dialog" aria-modal="true" aria-labelledby="writeTitle">
-      <div class="write-box">
-        <div class="write-head">
-          <h2 id="writeTitle">Write</h2>
-          <button class="close" type="button" aria-label="Close">×</button>
-        </div>
-        <div class="write-body">
-          <textarea id="noteText" placeholder="Write here..."></textarea>
-          <button class="save" type="button">Save</button>
-        </div>
-      </div>
-    </div>
-
-    <script>
-      const modal = document.querySelector("#writeModal");
-      const title = document.querySelector("#writeTitle");
-      const textArea = document.querySelector("#noteText");
-      const closeButton = document.querySelector(".close");
-
-      document.querySelectorAll("button.topic-card").forEach((card) => {
-        card.addEventListener("click", () => {
-          title.textContent = `${card.dataset.topic} Write`;
-          modal.classList.add("is-open");
-          textArea.focus();
-        });
-      });
-
-      closeButton.addEventListener("click", () => modal.classList.remove("is-open"));
-
-      modal.addEventListener("click", (event) => {
-        if (event.target === modal) {
-          modal.classList.remove("is-open");
-        }
-      });
-
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-          modal.classList.remove("is-open");
-        }
-      });
-    </script>
-  </body>
+</body>
 </html>
-
-
-
-
-
-
-
