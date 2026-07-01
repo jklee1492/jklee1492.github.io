@@ -173,21 +173,21 @@
       </section>
 
       <section class="link-grid" aria-label="Microeconomics blog links">
-        <a class="blog-link" href="https://your-blog.com/microeconomics-demand-supply" target="_blank" rel="noopener">
+        <a class="blog-link" href="#" data-pending-link="true">
           <span>
             <strong>Demand and Supply</strong>
             Basic principles of markets, prices, demand, and supply.
           </span>
         </a>
 
-        <a class="blog-link" href="https://your-blog.com/microeconomics-consumer-choice" target="_blank" rel="noopener">
+        <a class="blog-link" href="#" data-pending-link="true">
           <span>
             <strong>Consumer Choice</strong>
             Utility, budget constraints, and individual decision making.
           </span>
         </a>
 
-        <a class="blog-link" href="https://your-blog.com/microeconomics-welfare" target="_blank" rel="noopener">
+        <a class="blog-link" href="#" data-pending-link="true">
           <span>
             <strong>Market Welfare</strong>
             Surplus, efficiency, taxes, and welfare analysis.
@@ -195,6 +195,14 @@
         </a>
       </section>
     </main>
+
+    <script>
+      document.querySelectorAll("[data-pending-link]").forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          alert("아직 연결된 블로그 글 주소가 없습니다.");
+        });
+      });
+    </script>
   </body>
 </html>
-
