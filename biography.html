@@ -1,1 +1,332 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cosmos | JK Lee</title>
 
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+        background:
+          linear-gradient(90deg, rgba(2, 10, 22, 0.56), rgba(2, 12, 28, 0.18) 54%, rgba(2, 10, 20, 0.34)),
+          linear-gradient(180deg, rgba(0, 10, 24, 0.12), rgba(0, 10, 24, 0.62)),
+          url("assets/economics-hero.png") center / cover fixed no-repeat;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        width: 100%;
+        min-height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: clamp(18px, 3vw, 48px);
+        padding: 18px clamp(24px, 4vw, 56px);
+        background: rgba(0, 8, 18, 0.94);
+        backdrop-filter: blur(8px);
+        box-shadow: 0 4px 22px rgba(0, 0, 0, 0.35);
+      }
+
+      .logo {
+        margin-right: auto;
+        color: white;
+        font-size: clamp(34px, 3.7vw, 50px);
+        font-weight: 900;
+        text-decoration: none;
+        white-space: nowrap;
+        text-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+      }
+
+      nav a {
+        color: white;
+        font-size: clamp(15px, 1.5vw, 22px);
+        font-weight: 800;
+        text-decoration: none;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.45);
+      }
+
+      nav a:hover {
+        color: #4bb3ff;
+      }
+
+      header {
+        max-width: 980px;
+        padding: 170px clamp(24px, 7vw, 96px) 54px;
+        text-align: left;
+        text-shadow: 0 4px 10px rgba(0, 0, 0, 0.75);
+      }
+
+      header .kicker {
+        margin: 0 0 18px;
+        font-size: clamp(22px, 2vw, 32px);
+      }
+
+      header h1 {
+        margin: 0 0 18px;
+        font-size: clamp(58px, 7vw, 104px);
+        line-height: 0.98;
+        font-weight: 900;
+      }
+
+      header p {
+        margin: 0;
+        font-size: clamp(19px, 2vw, 28px);
+        line-height: 1.4;
+      }
+
+      .cosmos-menu {
+        width: min(1040px, calc(100% - 40px));
+        margin: 28px auto 80px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .cosmos-card {
+        min-height: 178px;
+        display: block;
+        padding: 32px;
+        color: white;
+        text-decoration: none;
+        text-align: left;
+        border: 1px solid rgba(255, 255, 255, 0.56);
+        border-radius: 16px;
+        background:
+          radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.2), transparent 34%),
+          linear-gradient(135deg, rgba(10, 32, 63, 0.9), rgba(6, 26, 52, 0.78));
+        box-shadow:
+          inset 0 0 24px rgba(86, 179, 255, 0.2),
+          0 16px 28px rgba(0, 0, 0, 0.28);
+        cursor: pointer;
+        transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+      }
+
+      .cosmos-card:hover,
+      .cosmos-card:focus-visible {
+        transform: translateY(-6px);
+        border-color: rgba(78, 181, 255, 0.95);
+        box-shadow:
+          inset 0 0 28px rgba(86, 179, 255, 0.28),
+          0 18px 34px rgba(0, 0, 0, 0.34);
+        outline: none;
+      }
+
+      .cosmos-card h3 {
+        margin: 0 0 14px;
+        font-size: clamp(25px, 2vw, 32px);
+      }
+
+      .cosmos-card p {
+        margin: 0;
+        font-size: clamp(17px, 1.45vw, 20px);
+        line-height: 1.5;
+      }
+
+      .modal {
+        position: fixed;
+        inset: 0;
+        z-index: 2000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.66);
+      }
+
+      .modal.is-open {
+        display: flex;
+      }
+
+      .write-box {
+        width: min(720px, 100%);
+        overflow: hidden;
+        color: #0d1c31;
+        border-radius: 14px;
+        background: #f7fbff;
+        box-shadow: 0 28px 80px rgba(0, 0, 0, 0.45);
+      }
+
+      .write-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 22px;
+        color: white;
+        background: #061426;
+      }
+
+      .write-head h2 {
+        margin: 0;
+        font-size: 24px;
+      }
+
+      .close {
+        width: 38px;
+        height: 38px;
+        color: white;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.12);
+        font-size: 28px;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .write-body {
+        padding: 22px;
+      }
+
+      textarea {
+        width: 100%;
+        min-height: 300px;
+        padding: 16px;
+        color: #12233a;
+        border: 1px solid #b7c8dc;
+        border-radius: 8px;
+        font: 18px/1.5 Arial, Helvetica, sans-serif;
+        resize: vertical;
+      }
+
+      .save {
+        margin-top: 14px;
+        padding: 12px 22px;
+        color: white;
+        border: 0;
+        border-radius: 8px;
+        background: #1176c9;
+        font-size: 17px;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      @media (max-width: 980px) {
+        nav {
+          justify-content: flex-start;
+          flex-wrap: wrap;
+          gap: 14px 22px;
+        }
+
+        .cosmos-menu {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 640px) {
+        header {
+          padding-top: 210px;
+        }
+
+        .cosmos-menu {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+    <span class="logo">JK Lee</span>
+    <a href="index.html">Home</a>
+    <a href="economics.html">Economics</a>
+    <a href="history.html">History</a>
+    <a href="cosmos.html">Cosmos</a>
+    <a href="biography.html">Biography</a>
+    <a href="research.html">Research</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+    <header>
+      <p class="kicker">Cosmos</p>
+      <h1>The Universe<br />and Beyond</h1>
+      <p>The Universe, Space and Everything Beyond</p>
+    </header>
+
+    <main class="cosmos-menu">
+      <a class="cosmos-card" href="universe.html">
+        <h3>Universe</h3>
+        <p>Origin, expansion and structure of the universe.</p>
+      </a>
+
+      <a class="cosmos-card" href="stars.html">
+        <h3>Stars</h3>
+        <p>Birth, evolution and death of stars.</p>
+      </a>
+
+      <a class="cosmos-card" href="planets.html">
+        <h3>Planets</h3>
+        <p>Solar System and exoplanets.</p>
+      </a>
+
+      <a class="cosmos-card" href="galaxies.html">
+        <h3>Galaxies</h3>
+        <p>Milky Way and other galaxies.</p>
+      </a>
+
+      <a class="cosmos-card" href="black-holes.html">
+        <h3>Black Holes</h3>
+        <p>Gravity, event horizon and singularities.</p>
+      </a>
+
+      <a class="cosmos-card" href="space-exploration.html">
+        <h3>Space Exploration</h3>
+        <p>NASA, ESA, SpaceX and future missions.</p>
+      </a>
+    </main>
+
+    <div class="modal" id="writeModal" role="dialog" aria-modal="true" aria-labelledby="writeTitle">
+      <div class="write-box">
+        <div class="write-head">
+          <h2 id="writeTitle">Write</h2>
+          <button class="close" type="button" aria-label="Close">×</button>
+        </div>
+        <div class="write-body">
+          <textarea id="noteText" placeholder="여기에 글을 작성하세요."></textarea>
+          <button class="save" type="button">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const modal = document.querySelector("#writeModal");
+      const title = document.querySelector("#writeTitle");
+      const textArea = document.querySelector("#noteText");
+      const closeButton = document.querySelector(".close");
+
+      document.querySelectorAll("button.cosmos-card").forEach((card) => {
+        card.addEventListener("click", () => {
+          title.textContent = `${card.dataset.topic} Write`;
+          modal.classList.add("is-open");
+          textArea.focus();
+        });
+      });
+
+      closeButton.addEventListener("click", () => {
+        modal.classList.remove("is-open");
+      });
+
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) {
+          modal.classList.remove("is-open");
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          modal.classList.remove("is-open");
+        }
+      });
+    </script>
+  </body>
+</html>
