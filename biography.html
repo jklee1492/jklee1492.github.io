@@ -225,6 +225,15 @@
         <h3>Albert Einstein</h3>
       </a>
       
+    </section>
     </main>
+    <script>
+      document.querySelectorAll("[data-pending-link]").forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          alert("아직 연결된 블로그 글 주소가 없습니다.");
+        });
+      });
+    </script>
   </body>
 </html>
