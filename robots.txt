@@ -1,1 +1,4 @@
+User-agent: *
+Allow: /
 
+Sitemap: https://jklee1492.github.io/sitemap.xml
